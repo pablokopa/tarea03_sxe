@@ -12,8 +12,9 @@ docker images
 ### 2. Crea un contenedor con el nombre 'dam_web1'.
 Para crear un contenedor de httpd con nombre **dam_web1** se utiliza:
 ```bash
-docker run -it --name=dam_web1 httpd /bin/sh
+docker run -d --name dam_web1 -p 8000:80 -v /home/accesodatos/Escritorio/sxe/ejercicio02_docker:/usr/local/apache2/htdocs httpd
 ```
+Crea y ejecuta el contenedor asignando el puerto 8000 del equipo al puerto 80 del contenedor.
 ### 3. Si quieres poder acceder desde el navegador de tu equipo, ¿que debes hacer?
 Simplemente utilziar la siguiente URL en el navegador:
 ```text
@@ -33,3 +34,15 @@ http://localhost:8000
 </html>
 ```
 Utilizando la URL del apartado anterior se puede acceder sin problema al navegador y comprobar el resultado.
+### 5. Crea otro contenedor 'dam_web2' con el mismo bind mount y a otro puerto, por ejemplo 9080.
+Para crear otro contenedor de httpd con nombre **dam_web2** y diferente puerto se utiliza:
+```bash
+docker run -d --name dam_web2 -p 9080:80 -v /home/accesodatos/Escritorio/sxe/ejercicio02_docker:/usr/local/apache2/htdocs httpd
+```
+### 6. Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador: 
+Para comprobar el correcto fucnionamiento de **dam_web1** y de **dam_web2** se utiliza:
+```text
+http://localhost:9080 
+http://localhost:8000
+```
+En mi caso ambos funcionan correctamente y sin problemas.
