@@ -46,3 +46,5 @@ http://localhost:9080
 http://localhost:8000
 ```
 En mi caso ambos funcionan correctamente y sin problemas.
+### 7. Realiza modificaciones de la página y comprueba que los dos servidores 'sirven' la misma página
+Tras haber realizado pequeñas modificaciones, puedo confirmar que el funcionamiento es perfecto y que ambos servidores sirven a la misma página.
